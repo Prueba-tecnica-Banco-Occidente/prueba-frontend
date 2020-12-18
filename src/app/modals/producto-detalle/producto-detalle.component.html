@@ -1,0 +1,40 @@
+<mat-dialog-content class="mat-typography">
+    <mat-toolbar>
+        <span>{{title}}</span>
+    </mat-toolbar>
+    <mat-progress-bar mode="indeterminate" *ngIf="loader"></mat-progress-bar>
+    <section id="PanelFormulario">
+        <form class="example-form" [formGroup]="form" >
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input type="text" formControlName="nombre" matInput placeholder="Nombre">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput formControlName="descripcion" placeholder="Descripcion"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Seleccione una categoria</mat-label>
+                <mat-select formControlName="categoria">
+                  <mat-option value="0">Tecnologia</mat-option>
+                  <mat-option value="1">Ropa</mat-option>
+                  <mat-option value="2">Deporte</mat-option>
+                  <mat-option value="3">Otros</mat-option>
+                </mat-select>
+            </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Precio</mat-label>
+                <input type="number" formControlName="precio" matInput placeholder="Precio">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Cantidad</mat-label>
+                <input type="number" formControlName="cantidad" matInput placeholder="Cantidad">
+            </mat-form-field>
+        </form>
+    </section>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+    <button mat-button  cdkFocusInitial *ngIf="opt==0 || opt==2" (click)="save()">Guardar</button>
+</mat-dialog-actions>
